@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dental Implant Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 2rem; }
+    .page { display: none; }
+    .active { display: block; }
+    .option {
+      margin: 1rem 0;
+      cursor: pointer;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .option::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.3rem;
+      width: 1rem;
+      height: 1rem;
+      border: 2px solid #000;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page 1 -->
+  <div class="page active" id="page1">
+    <h2>Am I a good candidate for Dental Implants?</h2>
+    <div class="option" onclick="goTo('page2')">Start Questionnaire</div>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="page" id="page2">
+    <h2>What best describes your situation?</h2>
+    <div class="option" onclick="goTo('page3')">I have 1 tooth missing</div>
+    <div class="option" onclick="goTo('page3')">I have multiple teeth missing</div>
+    <div class="option" onclick="goTo('page3')">I'm missing all of my teeth</div>
+    <div class="option" onclick="goTo('page3')">I'm struggling with traditional Dentures</div>
+  </div>
+
+  <!-- Page 3 -->
+  <div class="page" id="page3">
+    <h2>How long have you been missing your teeth?</h2>
+    <div class="option" onclick="goTo('page4')">I still have them</div>
+    <div class="option" onclick="goTo('page4')">1–6 months</div>
+    <div class="option" onclick="goTo('page4')">7–12 months</div>
+    <div class="option" onclick="goTo('page4')">1+ years</div>
+    <div class="option" onclick="goTo('page4')">6+ years</div>
+  </div>
+
+  <!-- Page 4 -->
+  <div class="page" id="page4">
+    <h2>Dental Implant procedures are not covered by insurance. However, many affordable payment plan options exist. Are you interested in a payment plan option?</h2>
+    <div class="option" onclick="goTo('page5a')">Yes. I'm interested in affordable payment plan options</div>
+    <div class="option" onclick="goTo('page5b')">No. I will not need a payment plan</div>
+  </div>
+
+  <!-- Page 5a (Credit Score Options) -->
+  <div class="page" id="page5a">
+    <h2>Which best describes your credit?</h2>
+    <div class="option" onclick="goTo('end')">(Very Poor) Under 500</div>
+    <div class="option" onclick="goTo('end')">(Poor) 501–600</div>
+    <div class="option" onclick="goTo('end')">(Good) 601–649</div>
+    <div class="option" onclick="goTo('end')">(Very Good) 650–699</div>
+    <div class="option" onclick="goTo('end')">(Excellent) 700+</div>
+    <div class="option" onclick="goTo('end')">I don't know</div>
+  </div>
+
+  <!-- Page 5b (How ready are you) -->
+  <div class="page" id="page5b">
+    <h2>How ready do you feel to do something about your situation?</h2>
+    <div class="option" onclick="goTo('end')">I'm ready to take the next step</div>
+    <div class="option" onclick="goTo('end')">I'm still thinking about it</div>
+  </div>
+
+  <!-- End Page -->
+  <div class="page" id="end">
+    <h2>Thank you! We’ll be in touch with your options soon.</h2>
+  </div>
+
+  <script>
+    function goTo(id) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
